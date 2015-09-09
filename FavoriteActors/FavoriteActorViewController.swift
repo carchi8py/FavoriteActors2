@@ -16,10 +16,7 @@ import CoreData
 // Step 8: Add the NSFetchedResultsControllerDelegate protocol to the class declaration
 
 class FavoriteActorViewController : UITableViewController, ActorPickerViewControllerDelegate {
-   
-    // Step 4: Remove the actors array
-    var actors = [Person]()
-    
+
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
