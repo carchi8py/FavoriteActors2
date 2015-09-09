@@ -212,6 +212,45 @@ class FavoriteActorViewController : UITableViewController, NSFetchedResultsContr
     
     // Step 7: You can implmement the delegate methods here. Or maybe above the table methods. Anywhere is fine.
     
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.beginUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+        
+        switch type {
+        case .Insert:
+            self.tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+        case .Delete:
+            self.tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+        default:
+            return
+        }
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        
+        switch type {
+        case .Insert:
+            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+        case .Delete:
+            tableView.deleteRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+        case .Update:
+            let cell = tableView.cellForRowAtIndexPath(indexPath!) as! ActorTableViewCell
+            let actor = controller.objectAtIndexPath(indexPath!) as! Person
+            self.configureCell(cell, withActor: actor)
+        case .Move:
+            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+        default:
+            return
+        }
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.endUpdates()
+    }
+    
     // MARK: - Saving the array
     
     var actorArrayURL: NSURL {
