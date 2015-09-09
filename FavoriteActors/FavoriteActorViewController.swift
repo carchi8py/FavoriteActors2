@@ -24,9 +24,6 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
         
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addActor")
-
-        // This will be removed in step 5
-        actors = fetchAllActors()
         
         // Step 2: invoke fetchedResultsController.performFetch(nil) here
         
