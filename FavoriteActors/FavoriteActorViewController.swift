@@ -48,6 +48,18 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
     }
     
     // Step 1 - Add the lazy fetchedResultsController property. See the reference sheet.
+    
+    // CHRIS: -- Added Fetched Results Controller
+    lazy var fetchedResultsController: NSFetchedResultsController = {
+        //Create the fetch request
+        let fetchRequest = NSFetchRequest(entityName: "Person")
+        //add a sort descriptor
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        //Create the Fetched Results Controller
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.sharedContext, sectionNameKeyPath: nil, cacheName: nil)
+        //return the fetched results controller, It will be the vaule of the lazy variable
+        return fetchedResultsController
+        } ()
 
     // Step 5: Remove this method, and the invocation
     
