@@ -32,6 +32,9 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
         actors = fetchAllActors()
         
         // Step 2: invoke fetchedResultsController.performFetch(nil) here
+        
+        fetchedResultsController.performFetch(nil)
+        
         // Step 9: set the fetchedResultsController.delegate = self
     }
     
