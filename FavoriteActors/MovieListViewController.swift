@@ -91,7 +91,7 @@ class MovieListViewController : UITableViewController {
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.sharedContext, sectionNameKeyPath: nil, cacheName: nil)
         //return the fetched results controller, It will be the vaule of the lazy variable
         return fetchedResultsController
-    } ()
+        } ()
     
     func saveContext() {
         CoreDataStackManager.sharedInstance().saveContext()
