@@ -15,7 +15,7 @@ import CoreData
 
 // Step 8: Add the NSFetchedResultsControllerDelegate protocol to the class declaration
 
-class FavoriteActorViewController : UITableViewController, ActorPickerViewControllerDelegate {
+class FavoriteActorViewController : UITableViewController, NSFetchedResultsControllerDelegate, ActorPickerViewControllerDelegate {
 
     // MARK: - Life Cycle
     
