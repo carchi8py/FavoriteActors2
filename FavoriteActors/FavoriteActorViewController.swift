@@ -30,6 +30,8 @@ class FavoriteActorViewController : UITableViewController, NSFetchedResultsContr
         fetchedResultsController.performFetch(nil)
         
         // Step 9: set the fetchedResultsController.delegate = self
+        
+        fetchedResultsController.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
