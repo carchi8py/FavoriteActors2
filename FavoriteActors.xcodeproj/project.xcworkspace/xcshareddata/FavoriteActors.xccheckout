@@ -10,31 +10,31 @@
 	<string>FavoriteActors</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>CD28FA6A2CFC634512324DD7C91B7993C5276BCE</key>
-		<string>https://github.com/udacity/ios-persistence</string>
+		<key>0821E388A831A519AC4F77EF0C04FD166CC9ECA3</key>
+		<string>https://github.com/carchi8py/FavoriteActors2.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>CoreDataFavoriteActors/FavoriteActors.xcodeproj</string>
+	<string>FavoriteActors.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>CD28FA6A2CFC634512324DD7C91B7993C5276BCE</key>
-		<string>../../..</string>
+		<key>0821E388A831A519AC4F77EF0C04FD166CC9ECA3</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/udacity/ios-persistence</string>
+	<string>https://github.com/carchi8py/FavoriteActors2.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>CD28FA6A2CFC634512324DD7C91B7993C5276BCE</string>
+	<string>0821E388A831A519AC4F77EF0C04FD166CC9ECA3</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>CD28FA6A2CFC634512324DD7C91B7993C5276BCE</string>
+			<string>0821E388A831A519AC4F77EF0C04FD166CC9ECA3</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ios-persistence</string>
+			<string>Favorite-actors-2</string>
 		</dict>
 	</array>
 </dict>
