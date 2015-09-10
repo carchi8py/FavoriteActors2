@@ -138,6 +138,36 @@ class MovieListViewController : UITableViewController, NSFetchedResultsControlle
     
     // Step 4: This would be a great place to add the delegate methods
     
+    func controller(controller: NSFetchedResultsController,
+        didChangeObject anObject: AnyObject,
+        atIndexPath indexPath: NSIndexPath?,
+        forChangeType type: NSFetchedResultsChangeType,
+        newIndexPath: NSIndexPath?) {
+            
+            switch type {
+            case .Insert:
+                tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+                
+            case .Delete:
+                tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+                
+            case .Update:
+                let cell = tableView.cellForRowAtIndexPath(indexPath!) as! ActorTableViewCell
+                let movie = controller.objectAtIndexPath(indexPath!) as! Movie
+                self.configureCell(cell, movie: movie)
+                
+            case .Move:
+                tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+                tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+                
+            default:
+                return
+            }
+    }
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.endUpdates()
+    }
+    
     // MARK: - Configure Cell
     
     func configureCell(cell: TaskCancelingTableViewCell, movie: Movie) {
