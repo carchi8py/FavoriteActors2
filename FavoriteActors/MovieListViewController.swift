@@ -30,6 +30,8 @@ class MovieListViewController : UITableViewController {
         
         // Step 2: Perform the fetch
         
+        fetchedResultsController.performFetch(nil)
+        
         // Step 6: Set the delegate to this view controller
     }
     
