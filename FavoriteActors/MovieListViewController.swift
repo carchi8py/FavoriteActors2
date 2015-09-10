@@ -14,7 +14,7 @@ import CoreData
 */
 
 // Step 5: The view controller should conform to the NSFetchedResultsController protocol
-class MovieListViewController : UITableViewController {
+class MovieListViewController : UITableViewController, NSFetchedResultsControllerDelegate {
     
     // This array needs to be replaced by a lazy fetchedResultsController property
     var actor: Person!
