@@ -88,6 +88,17 @@ class MovieListViewController : UITableViewController {
     
     // Step 1: This would be a nice place to paste the lazy fetchedResultsController
     
+    lazy var fetchedResultsController: NSFetchedResultsController = {
+        let fetchRequest = NSFetchRequest(entityName: "Movie")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        fetchRequest.predicate = NSPredicate(format: "actor == %@", self.actor)
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.sharedContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        return fetchedResultsController
+        
+    } ()
+    
     // MARK: - Table View
     
     // Step 3: Update these three table view methods
