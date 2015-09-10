@@ -33,6 +33,8 @@ class MovieListViewController : UITableViewController, NSFetchedResultsControlle
         fetchedResultsController.performFetch(nil)
         
         // Step 6: Set the delegate to this view controller
+        
+        fetchedResultsController.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
