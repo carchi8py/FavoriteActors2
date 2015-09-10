@@ -106,12 +106,14 @@ class MovieListViewController : UITableViewController {
     // Step 3: Update these three table view methods
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return actor.movies.count
+        let sectionInfo = self.fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
+        return sectionInfo.numberOfObjects
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let movie = actor.movies[indexPath.row]
         let CellIdentifier = "MovieCell"
+        
+        let movie = fetchedResultsController.objectAtIndexPath(indexPath) as! Movie
         
         let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! TaskCancelingTableViewCell
         
@@ -124,8 +126,9 @@ class MovieListViewController : UITableViewController {
         
         switch (editingStyle) {
         case .Delete:
-            actor.movies.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            let actor = fetchedResultsController.objectAtIndexPath(indexPath) as! Person
+            sharedContext.deleteObject(actor)
+            CoreDataStackManager.sharedInstance().saveContext()
         default:
             break
         }
